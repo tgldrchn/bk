@@ -12,6 +12,12 @@ const BoginooSchema = new mongoose.Schema(
       required: [true, "нууц үгээ оруулна уу"],
       minLength: [8, "хэтэрхий богино байна , 8 н оронтой байна"],
     },
+    role: {
+      type: String,
+      enum: ["normal", "admin"],
+      default: "normal",
+      required: [true, "please specify user role"],
+    },
   },
   { toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
