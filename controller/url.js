@@ -60,3 +60,18 @@ export const deleteUrl = async (req, res) => {
     });
   }
 };
+export const history = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { limit } = req.query;
+    const user = await Url.find({ user_id: id }).limit(limit);
+    res.status(200).send({
+      data: user,
+    });
+  } catch (error) {
+    res.status(400).send({
+      success: false,
+      data: error.message,
+    });
+  }
+};

@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const getAllUser = async (req, res) => {
   try {
-    const user = await Boginoo.find({}).populate("url");
+    const user = await Boginoo.find({}).populate("url").limit(2);
     res.status(200).send({
       success: true,
       data: user,

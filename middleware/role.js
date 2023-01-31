@@ -7,7 +7,7 @@ export const checkRole = async (req, res, next) => {
     const link = await Url.findById(id);
     const user = await Boginoo.findById(link.user_id);
 
-    if (user.role === "admin") {
+    if (user.role === "normal") {
       return next();
     } else {
       console.log("aldaa");
